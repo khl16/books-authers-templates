@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            justify-content: space-around;
+        }
+        table,tr,td,th{
+            border: 1px solid black;
+        }
+        table{
+            width: 300px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form">
+            <form action="/form_add" method="post">
+                {% csrf_token %}
+                <h2>add a book</h2>
+                <p>title <input type="text" name="title"> </p>
+                <p>description <input type="text" name="description"> </p>
+                <button type="submit">add</button>
+            </form>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>action</th>
+                </tr>
+                {%for key in book%}
+                <tr>
+                    <td>{{key.id}}</td>
+                    <td>{{key.title}}</td>
+                    <td><a href="{% url 'show' key.id %}" >view</a></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

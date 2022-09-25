@@ -1,0 +1,115 @@
+from books_authers_app.models import *
+
+1-Book.objects.create(title='java')
+Book.objects.create(title='python')
+Book.objects.create(title='php')
+Book.objects.create(title='ruby')
+
+2-Author.objects.create(first_name='Jane', last_name='Austen')
+Author.objects.create(first_name='Emily', last_name='Dickinson')
+Author.objects.create(first_name='Fyodor', last_name='Dostovsky')
+Author.objects.create(first_name='William', last_name='Shakespeare')
+Author.objects.create(first_name='Lau', last_name='Tzu')
+
+3- add 'notes' to auther
+ python manage.py makemigrations
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+Select an option: 1
+Please enter the default value as valid Python.
+>>> 'No Note'
+python manage.py migrate
+
+4- c= Book.objects.get(id=1)
+   c.title='C#'
+   c.save()
+
+
+5- c= Author.objects.get(id=4)
+>>> c.first_name ='Bill'
+>>> c.save()
+
+
+6- >>> book1=Book.objects.get(id=1)
+>>> book2=Book.objects.get(id=2)
+>>> author1=Author.objects.get(id=1)
+>>> author1.books.add(book1)
+>>> author1.books.add(book2)
+
+
+7-book1=Book.objects.get(id=1)
+>>> book2=Book.objects.get(id=2)
+>>> book3=Book.objects.get(id=3)
+>>> author2=Author.objects.get(id=2)
+>>> author2.books.add(book1)
+>>> author2.books.add(book2)
+>>> author2.books.add(book3)
+
+
+8- >>> book1=Book.objects.get(id=4)
+>>> book2=Book.objects.get(id=2)
+>>> book3=Book.objects.get(id=3)
+>>> book4=Book.objects.get(id=1)
+>>> author3=Author.objects.get(id=3)
+>>> author3.books.add(book1)
+>>> author3.books.add(book2)
+>>> author3.books.add(book3)
+>>> author3.books.add(book4)
+
+
+9- >>> book1=Book.objects.get(id=1)
+>>> book2=Book.objects.get(id=2)
+>>> book3=Book.objects.get(id=3)
+>>> book4=Book.objects.get(id=4)
+>>> book5=Book.objects.get(id=5)
+>>> author4=Author.objects.get(id=4)
+>>> author4.books.add(book1)
+>>> author4.books.add(book2)
+>>> author4.books.add(book3)
+>>> author4.books.add(book4)
+>>> author4.books.add(book5)
+
+
+10- bookss=Book.objects.get(id=3)
+>>> bookss.authors.all()
+
+
+11- author1=Author.objects.get(id=2)
+>>> book3.authors.remove(author1)
+>>> bookss=Book.objects.get(id=3)
+
+
+12-book2=Book.objects.get(id=2)
+>>> author5=Author.objects.get(id=5)
+>>> author5.books.add(book2)
+
+13-author3=Author.objects.get(id=3)
+>>> author3.books.all()
+
+14- book5=Book.objects.get(id=5)
+>>> book5.authors.all()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
